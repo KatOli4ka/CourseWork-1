@@ -4,6 +4,7 @@ public class Employee {
     private int department;
     private double salary;
     private final int id;
+    private  double raiseSalary;
 
     public Employee(String fIO, int department, double salary) {
         this.id=idCount++;
@@ -11,8 +12,7 @@ public class Employee {
         this.department=department;
         this.salary=salary;
     }
-
-    public String getfIO() {
+       public String getfIO() {
         return fIO;
     }
     public int getDepartment() {
@@ -24,12 +24,18 @@ public class Employee {
     public int getId() {
         return id;
     }
+
+
     public void setDepartment(int department) {
         this.department = department;
     }
     public void setSalary(double salary) {
         this.salary = salary;
     }
+    public void setRaiseSalary(double raiseSalary) {
+        this.raiseSalary = raiseSalary;
+    }
+
 
     @Override
     public String toString() {

@@ -11,6 +11,7 @@ public class Main {
         EMPLOYEES[7]=new Employee("Владимиров Владимир Олегович",3,50100);
         EMPLOYEES[8]=new Employee("Петров Петр Петрович",2,36000);
         EMPLOYEES[9]=new Employee("Владимиров Владимир Владимирович",2,37000);
+        
         printAllInformation();
         double salariesSum = getSalarieSum();
         System.out.println("Сумма з/п - "+salariesSum);
@@ -21,6 +22,7 @@ public class Main {
         double averageSalary = findAverageSalary();
         System.out.println("Средняя з/п -  "+averageSalary);
         printAllNames();
+        getRaiseSalary();
 
     }
     private static void printAllInformation() {
@@ -68,6 +70,14 @@ public class Main {
 
         }
     }
+     private static void getRaiseSalary() {
+         double percent=0.02;
+          for (Employee employee:EMPLOYEES) {
+              employee.setSalary(employee.getSalary()*(1+percent));
+              System.out.printf("После индексации з/п "+employee.getfIO()+" получает %.0f "+"рублей%n", employee.getSalary());
+         }
+
+        }
 
 }
 
