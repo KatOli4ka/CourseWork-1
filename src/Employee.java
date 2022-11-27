@@ -1,9 +1,9 @@
 public class Employee {
     private static int idCount=1;
-    private String fIO;
+    private final String fIO;
     private int department;
     private double salary;
-    private int id;
+    private final int id;
 
     public Employee(String fIO, int department, double salary) {
         this.id=idCount++;
@@ -28,5 +28,10 @@ public class Employee {
     }
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "id - " + id +", ФИО - " + fIO +", отдел - " + department +", з/п - " + salary;
     }
 }
