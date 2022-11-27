@@ -15,7 +15,9 @@ public class Main {
         double salariesSum = getSalarieSum();
         System.out.println("Сумма з/п - "+salariesSum);
         Employee employeeMinSalary=findMinSalaryEmployee();
-        System.out.println("Сотрудник с мин.з/п - "+findMinSalaryEmployee());
+        System.out.println("Сотрудник с мин.з/п - "+employeeMinSalary);
+        Employee employeeMaxSalary=findMaxSalaryEmployee();
+        System.out.println("Сотрудник с макс.з/п - "+employeeMaxSalary);
 
     }
     private static void printAllInformation() {
@@ -42,5 +44,16 @@ public class Main {
             }
         }return employeeMinSalary;
     }
+    private static Employee findMaxSalaryEmployee() {
+        double max=Integer.MIN_VALUE;
+        Employee employeeMaxSalary = null;
+        for (Employee employee:EMPLOYEES) {
+            if (employee.getSalary() > max) {
+                max = employee.getSalary();
+                employeeMaxSalary = employee;
+            }
+        }
+        return employeeMaxSalary;
 
-}
+}}
+
