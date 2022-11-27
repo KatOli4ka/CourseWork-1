@@ -20,6 +20,7 @@ public class Main {
         System.out.println("Сотрудник с макс.з/п - "+employeeMaxSalary);
         double averageSalary = findAverageSalary();
         System.out.println("Средняя з/п -  "+averageSalary);
+        printAllNames();
 
     }
     private static void printAllInformation() {
@@ -60,6 +61,12 @@ public class Main {
 
     private static double findAverageSalary() {
                 return (double) getSalarieSum() / EMPLOYEES.length;
+    }
+    private static void printAllNames() {
+        for (Employee employee : EMPLOYEES) {
+            System.out.println(employee.getfIO());
+
+        }
     }
 
 }

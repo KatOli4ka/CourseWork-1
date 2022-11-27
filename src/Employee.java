@@ -11,6 +11,7 @@ public class Employee {
         this.department=department;
         this.salary=salary;
     }
+
     public String getfIO() {
         return fIO;
     }
