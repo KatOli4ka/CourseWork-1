@@ -1,7 +1,7 @@
 public class Main {
    private static final Employee[] EMPLOYEES = new Employee[10];
     public static void main(String[] args) {
-        EMPLOYEES[0]=new Employee("Петров Петр Петрович",1, 34000);
+        EMPLOYEES[0]=new Employee("Петров Петр Петрович",1, 38700);
         EMPLOYEES[1]=new Employee("Петров Влад Олегович",3,35500);
         EMPLOYEES[2]=new Employee("Петров Олег Олегович",2,39000);
         EMPLOYEES[3]=new Employee("Олегич Владимир Олегович",4,40000);
@@ -14,6 +14,8 @@ public class Main {
         printAllInformation();
         double salariesSum = getSalarieSum();
         System.out.println("Сумма з/п - "+salariesSum);
+        Employee employeeMinSalary=findMinSalaryEmployee();
+        System.out.println("Сотрудник с мин.з/п - "+findMinSalaryEmployee());
 
     }
     private static void printAllInformation() {
@@ -28,6 +30,17 @@ public class Main {
             sum += employee.getSalary();
         }
         return sum;
+    }
+
+    private static Employee findMinSalaryEmployee() {
+        double min=Integer.MAX_VALUE;
+        Employee employeeMinSalary = null;
+        for (Employee employee:EMPLOYEES) {
+            if (employee.getSalary() < min) {
+                min = employee.getSalary();
+                employeeMinSalary = employee;
+            }
+        }return employeeMinSalary;
     }
 
 }
