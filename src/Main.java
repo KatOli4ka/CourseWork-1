@@ -23,6 +23,10 @@ public class Main {
         System.out.println("Средняя з/п -  "+averageSalary);
         printAllNames();
         getRaiseSalary();
+        Employee employeeMinSalaryByDepartment = findMinSalaryEmployeeByDepartment(3);
+        System.out.println("Сотрудник "+employeeMinSalaryByDepartment);
+        Employee employeeMaxSalaryByDepartment = findMaxSalaryEmployeeByDepartment(3);
+        System.out.println("Сотрудник "+employeeMaxSalaryByDepartment);
 
     }
     private static void printAllInformation() {
@@ -66,7 +70,7 @@ public class Main {
     }
     private static void printAllNames() {
         for (Employee employee : EMPLOYEES) {
-            System.out.println(employee.getfIO());
+            System.out.println(employee.getFIO());
 
         }
     }
@@ -74,10 +78,34 @@ public class Main {
          double percent=0.02;
           for (Employee employee:EMPLOYEES) {
               employee.setSalary(employee.getSalary()*(1+percent));
-              System.out.printf("После индексации з/п "+employee.getfIO()+" получает %.0f "+"рублей%n", employee.getSalary());
+              System.out.printf("После индексации з/п "+employee.getFIO()+" получает %.0f "+"рублей%n", employee.getSalary());
          }
 
         }
+    private static Employee findMinSalaryEmployeeByDepartment(int department) {
+
+        double min = Integer.MAX_VALUE;
+        Employee employeeMinSalaryByDepartment = null;
+        for (Employee employee : EMPLOYEES) {
+            if (employee.getSalary() < min && employee.getDepartment() == department) {
+                min = employee.getSalary();
+                employeeMinSalaryByDepartment = employee;
+            }
+        }
+        return employeeMinSalaryByDepartment;
+    }
+    private static Employee findMaxSalaryEmployeeByDepartment(int department) {
+
+        double max = Integer.MIN_VALUE;
+        Employee employeeMaxSalaryByDepartment = null;
+        for (Employee employee : EMPLOYEES) {
+            if (employee.getSalary() > max && employee.getDepartment() == department) {
+                max = employee.getSalary();
+                employeeMaxSalaryByDepartment = employee;
+            }
+        }
+        return employeeMaxSalaryByDepartment;
+    }
 
 }
 
