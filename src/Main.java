@@ -28,6 +28,7 @@ public class Main {
         Employee employeeMaxSalaryByDepartment = findMaxSalaryEmployeeByDepartment(3);
         System.out.println("Сотрудник "+employeeMaxSalaryByDepartment);
 
+
     }
     private static void printAllInformation() {
         for (Employee employee:EMPLOYEES) {
@@ -38,7 +39,7 @@ public class Main {
     private static double getSalarieSum() {
         double sum=0;
         for (Employee employee:EMPLOYEES) {
-            sum += employee.getSalary();
+            sum += employee.getSalary(employee.getDepartment());
         }
         return sum;
     }
@@ -47,8 +48,8 @@ public class Main {
         double min=Integer.MAX_VALUE;
         Employee employeeMinSalary = null;
         for (Employee employee:EMPLOYEES) {
-            if (employee.getSalary() < min) {
-                min = employee.getSalary();
+            if (employee.getSalary(employee.getDepartment()) < min) {
+                min = employee.getSalary(employee.getDepartment());
                 employeeMinSalary = employee;
             }
         }return employeeMinSalary;
@@ -57,8 +58,8 @@ public class Main {
         double max = Integer.MIN_VALUE;
         Employee employeeMaxSalary = null;
         for (Employee employee : EMPLOYEES) {
-            if (employee.getSalary() > max) {
-                max = employee.getSalary();
+            if (employee.getSalary(employee.getDepartment()) > max) {
+                max = employee.getSalary(employee.getDepartment());
                 employeeMaxSalary = employee;
             }
         }
@@ -77,8 +78,8 @@ public class Main {
      private static void getRaiseSalary() {
          double percent=0.02;
           for (Employee employee:EMPLOYEES) {
-              employee.setSalary(employee.getSalary()*(1+percent));
-              System.out.printf("После индексации з/п "+employee.getFIO()+" получает %.0f "+"рублей%n", employee.getSalary());
+              employee.setSalary(employee.getSalary(employee.getDepartment())*(1+percent));
+              System.out.printf("После индексации з/п "+employee.getFIO()+" получает %.0f "+"рублей%n", employee.getSalary(employee.getDepartment()));
          }
 
         }
@@ -87,8 +88,8 @@ public class Main {
         double min = Integer.MAX_VALUE;
         Employee employeeMinSalaryByDepartment = null;
         for (Employee employee : EMPLOYEES) {
-            if (employee.getSalary() < min && employee.getDepartment() == department) {
-                min = employee.getSalary();
+            if (employee.getSalary(employee.getDepartment()) < min && employee.getDepartment() == department) {
+                min = employee.getSalary(employee.getDepartment());
                 employeeMinSalaryByDepartment = employee;
             }
         }
@@ -99,13 +100,14 @@ public class Main {
         double max = Integer.MIN_VALUE;
         Employee employeeMaxSalaryByDepartment = null;
         for (Employee employee : EMPLOYEES) {
-            if (employee.getSalary() > max && employee.getDepartment() == department) {
-                max = employee.getSalary();
+            if (employee.getSalary(employee.getDepartment()) > max && employee.getDepartment() == department) {
+                max = employee.getSalary(employee.getDepartment());
                 employeeMaxSalaryByDepartment = employee;
             }
         }
         return employeeMaxSalaryByDepartment;
     }
+
 
 }
 

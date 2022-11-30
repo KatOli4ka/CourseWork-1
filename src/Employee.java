@@ -18,7 +18,7 @@ public class Employee {
     public int getDepartment() {
         return department;
     }
-    public double getSalary() {
+    public double getSalary(int department) {
         return salary;
     }
     public int getId() {
@@ -29,8 +29,9 @@ public class Employee {
     public void setDepartment(int department) {
         this.department = department;
     }
-    public void setSalary(double salary) {
+    public double setSalary(double salary) {
         this.salary = salary;
+        return salary;
     }
     @Override
     public String toString() {
